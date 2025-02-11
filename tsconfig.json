@@ -1,0 +1,14 @@
+{
+  "extends": "@adonisjs/tsconfig/tsconfig.app.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "./",
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "outDir": "./build",
+    "lib": [
+      "DOM"
+    ]
+  }
+}

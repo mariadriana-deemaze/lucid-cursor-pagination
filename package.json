@@ -1,0 +1,25 @@
+{
+  "name": "lucid-cursor-pagination",
+  "version": "1.0.0",
+  "description": "A lucid orm provider for stacking in the hability to paginate results via cursor.",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "keywords": [
+    "lucid-orm",
+    "adonis-v6",
+    "typescript"
+  ],
+  "author": "Maria Adriana",
+  "license": "MIT",
+  "dependencies": {
+    "@adonisjs/lucid": "^21.6.0",
+    "@adonisjs/tsconfig": "^1.4.0",
+    "japa": "^4.0.0",
+    "luxon": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.4.2"
+  }
+}
