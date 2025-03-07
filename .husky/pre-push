@@ -1,0 +1,11 @@
+echo '💅 Styling, formatting and typechecking your project before committing'
+
+yarn format:check
+
+echo '🏗️👷 Building the project'
+yarn build
+
+echo '🧪 Running tests'
+yarn test:docker
+
+echo '✅ Done!' 

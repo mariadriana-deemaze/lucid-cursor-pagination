@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - 5435:5435
+    environment:
+      POSTGRES_DB: cursor_paginator_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+
+  app:
+    build: .
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - postgres
+    command: ["yarn", "test"]

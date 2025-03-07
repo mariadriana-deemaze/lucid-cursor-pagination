@@ -1,25 +1,76 @@
 {
   "name": "lucid-cursor-pagination",
   "version": "1.0.0",
-  "description": "A lucid orm provider for stacking in the hability to paginate results via cursor.",
-  "main": "index.js",
+  "type": "module",
+  "description": "A lucid ORM provider for stacking onto que QueryBuilder the hability to paginate results via cursor.",
+  "main": "./build/index.js",
+  "types": "./build/src/index.d.ts",
   "scripts": {
-    "test": "yarn test"
+    "test": "tsx tests/unit/cursor-paginator.ts",
+    "test:docker": "docker-compose up -d && yarn test && docker-compose down",
+    "clean": "rm -rf build",
+    "build": "npm run clean && tsc",
+    "build:watch": "tsc --watch",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.{ts,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,json,md}\"",
+    "prepare": "husky install"
   },
   "keywords": [
     "lucid-orm",
     "adonis-v6",
     "typescript"
   ],
-  "author": "Maria Adriana",
+  "author": "Maria Adriana <maria.adriana.cardoso@deemaze.com>",
   "license": "MIT",
   "dependencies": {
+    "@adonisjs/core": "^6.17.1",
     "@adonisjs/lucid": "^21.6.0",
     "@adonisjs/tsconfig": "^1.4.0",
+    "@faker-js/faker": "^9.6.0",
+    "dotenv": "^16.4.7",
     "japa": "^4.0.0",
-    "luxon": "^3.5.0"
+    "luxon": "^3.5.0",
+    "pg": "^8.13.2"
   },
   "devDependencies": {
-    "@types/luxon": "^3.4.2"
+    "@types/luxon": "^3.4.2",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.3.3"
+  },
+  "adonisjs": {
+    "commands": [
+      "./providers/configure.ts"
+    ]
+  },
+  "files": [
+    "build",
+    "providers"
+  ],
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "import": "./build/index.js"
+    },
+    "./providers/*": {
+      "types": "./build/providers/*.d.ts",
+      "import": "./build/providers/*.js"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,json,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }

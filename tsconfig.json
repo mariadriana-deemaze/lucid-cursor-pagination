@@ -2,13 +2,18 @@
   "extends": "@adonisjs/tsconfig/tsconfig.app.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "./",
-    "jsx": "react-jsx",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "rootDir": ".",
     "outDir": "./build",
-    "lib": [
-      "DOM"
-    ]
-  }
+    "jsx": "react-jsx",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": ["DOM"]
+  },
+  "include": ["index.ts", "src/**/*.ts", "providers/**/*.ts", "tests/**/*.ts", "configure.ts"],
+  "exclude": ["node_modules", "build"]
 }

@@ -1,0 +1,13 @@
+node_modules/
+.env
+tests/
+database/
+docker-compose.yaml
+Dockerfile
+*.log
+.git
+.gitignore
+tsconfig.json
+src/
+*.ts
+!*.d.ts
